@@ -1,0 +1,1463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Subhan Ahmed Khan | Biomedical Engineer Portfolio</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+  /* ===== CSS Variables ===== */
+  :root {
+    --primary: #0a74da;
+    --primary-dark: #065bb5;
+    --secondary: #00b894;
+    --accent: #ff6b6b;
+    --text-dark: #1e293b;
+    --text-medium: #475569;
+    --text-light: #64748b;
+    --bg-light: #f8fafc;
+    --bg-white: #ffffff;
+    --glass-bg: rgba(255, 255, 255, 0.95);
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    --shadow-hover: 0 20px 40px rgba(10, 116, 218, 0.15);
+    --radius: 12px;
+    --transition: all 0.3s ease;
+  }
+
+  /* ===== Reset & Base Styles ===== */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ===== Typography ===== */
+  h1, h2, h3, h4 {
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  h1 {
+    font-size: 3.5rem;
+  }
+
+  h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    position: relative;
+    display: inline-block;
+  }
+
+  h2:after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    border-radius: 2px;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    margin-bottom: 1rem;
+    color: var(--text-medium);
+  }
+
+  /* ===== Layout ===== */
+  .container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  section {
+    padding: 5rem 0;
+  }
+
+  .section-title-center {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  /* ===== Header & Navigation ===== */
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    z-index: 1000;
+    transition: var(--transition);
+    padding: 0;
+  }
+
+  header.scrolled {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 1.5rem;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--primary);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    white-space: nowrap;
+  }
+
+  .logo i {
+    font-size: 1.8rem;
+  }
+
+  .nav-container {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 1.2rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-links a {
+    color: var(--text-dark);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.85rem;
+    padding: 0.5rem 0.8rem;
+    position: relative;
+    transition: var(--transition);
+    white-space: nowrap;
+    border-radius: 4px;
+  }
+
+  .nav-links a:hover {
+    color: var(--primary);
+    background-color: rgba(10, 116, 218, 0.05);
+  }
+
+  .nav-links a.active {
+    color: var(--primary);
+    background-color: rgba(10, 116, 218, 0.1);
+  }
+
+  .nav-links a:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background-color: var(--primary);
+    transition: var(--transition);
+  }
+
+  .nav-links a:hover:after,
+  .nav-links a.active:after {
+    width: 70%;
+  }
+
+  .header-buttons {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-left: auto;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.7rem 1.5rem;
+    border-radius: 50px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: var(--transition);
+    cursor: pointer;
+    border: none;
+    font-size: 0.9rem;
+    white-space: nowrap;
+  }
+
+  .btn-primary {
+    background-color: var(--primary);
+    color: white;
+    box-shadow: 0 5px 15px rgba(10, 116, 218, 0.3);
+  }
+
+  .btn-primary:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(10, 116, 218, 0.4);
+  }
+
+  .btn-outline {
+    background-color: transparent;
+    color: var(--primary);
+    border: 2px solid var(--primary);
+  }
+
+  .btn-outline:hover {
+    background-color: var(--primary);
+    color: white;
+  }
+
+  .menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0.5rem;
+  }
+
+  .menu-toggle span {
+    width: 22px;
+    height: 2.5px;
+    background-color: var(--text-dark);
+    border-radius: 3px;
+    transition: var(--transition);
+  }
+
+  /* ===== Hero Section ===== */
+  .hero {
+    padding-top: 9rem;
+    padding-bottom: 6rem;
+    background: linear-gradient(135deg, #f0f7ff 0%, #e6f2ff 100%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero:before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 70%;
+    height: 150%;
+    background: radial-gradient(circle, rgba(10, 116, 218, 0.1) 0%, transparent 70%);
+    z-index: 0;
+  }
+
+  .hero-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-content h1 {
+    margin-bottom: 1.5rem;
+    color: var(--text-dark);
+    font-size: 3rem;
+  }
+
+  .hero-content h1 span {
+    color: var(--primary);
+  }
+
+  .hero-content .title {
+    font-size: 1.1rem;
+    color: var(--primary);
+    font-weight: 600;
+    margin-bottom: 1rem;
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: rgba(10, 116, 218, 0.1);
+    border-radius: 50px;
+  }
+
+  .hero-content p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    color: var(--text-medium);
+  }
+
+  .hero-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .hero-image {
+    position: relative;
+  }
+
+  .hero-image img {
+    width: 100%;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-hover);
+    transition: var(--transition);
+  }
+
+  .hero-image img:hover {
+    transform: translateY(-10px);
+  }
+
+  .floating-icon {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: var(--bg-white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow);
+    font-size: 1.3rem;
+    color: var(--primary);
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .floating-icon:nth-child(1) {
+    top: -15px;
+    left: -15px;
+    animation-delay: 0s;
+  }
+
+  .floating-icon:nth-child(2) {
+    bottom: 20px;
+    right: -15px;
+    animation-delay: 1s;
+  }
+
+  .floating-icon:nth-child(3) {
+    bottom: -15px;
+    left: 30px;
+    animation-delay: 2s;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  /* ===== Card Styles ===== */
+  .card {
+    background-color: var(--bg-white);
+    border-radius: var(--radius);
+    padding: 2rem;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    height: 100%;
+  }
+
+  .card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-hover);
+  }
+
+  .card-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    color: white;
+  }
+
+  /* ===== Grid Layouts ===== */
+  .grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  /* ===== About Section ===== */
+  .about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .about-text p {
+    margin-bottom: 1.5rem;
+  }
+
+  .about-image {
+    position: relative;
+  }
+
+  .about-image img {
+    width: 100%;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+  }
+
+  .experience-badge {
+    position: absolute;
+    bottom: -15px;
+    right: -15px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+    padding: 1rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    text-align: center;
+    min-width: 120px;
+  }
+
+  .experience-badge h3 {
+    font-size: 2rem;
+    margin-bottom: 0.2rem;
+  }
+
+  /* ===== Professional Summary ===== */
+  .summary-highlights {
+    margin-top: 2rem;
+  }
+
+  .highlight-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .highlight-icon {
+    width: 45px;
+    height: 45px;
+    background-color: rgba(10, 116, 218, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary);
+    font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+
+  /* ===== Services Section ===== */
+  .services {
+    background: linear-gradient(135deg, #f8fafc 0%, #f0f7ff 100%);
+  }
+
+  /* ===== Projects Section ===== */
+  .project-card {
+    overflow: hidden;
+  }
+
+  .project-image {
+    height: 180px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: var(--radius) var(--radius) 0 0;
+    transition: var(--transition);
+  }
+
+  .project-card:hover .project-image {
+    transform: scale(1.05);
+  }
+
+  .project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 1rem 0;
+  }
+
+  .tag {
+    background-color: rgba(10, 116, 218, 0.1);
+    color: var(--primary);
+    padding: 0.3rem 0.8rem;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+
+  /* ===== Expertise Section ===== */
+  .expertise-container {
+    background-color: var(--bg-white);
+    border-radius: var(--radius);
+    padding: 2.5rem;
+    box-shadow: var(--shadow);
+  }
+
+  .skill-category {
+    margin-bottom: 2rem;
+  }
+
+  .skill-category h3 {
+    color: var(--primary);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid rgba(10, 116, 218, 0.1);
+    font-size: 1.3rem;
+  }
+
+  .skill-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+  }
+
+  .skill-item {
+    background-color: rgba(10, 116, 218, 0.05);
+    padding: 0.6rem 1rem;
+    border-radius: 50px;
+    font-weight: 600;
+    color: var(--text-medium);
+    border-left: 3px solid var(--primary);
+    font-size: 0.9rem;
+  }
+
+  /* ===== Education & Certifications ===== */
+  .timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .timeline:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 30px;
+    height: 100%;
+    width: 3px;
+    background-color: var(--primary);
+  }
+
+  .timeline-item {
+    position: relative;
+    margin-bottom: 2rem;
+    padding-left: 60px;
+  }
+
+  .timeline-icon {
+    position: absolute;
+    left: 15px;
+    top: 0;
+    width: 35px;
+    height: 35px;
+    background-color: var(--primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    font-size: 0.9rem;
+  }
+
+  .timeline-content h3 {
+    color: var(--primary);
+    font-size: 1.3rem;
+  }
+
+  .timeline-content .date {
+    color: var(--text-light);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    display: block;
+    font-size: 0.9rem;
+  }
+
+  /* ===== Contact Section ===== */
+  .contact-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+  }
+
+  .contact-info h3 {
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+  }
+
+  .contact-details {
+    margin-bottom: 2rem;
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .contact-icon {
+    width: 45px;
+    height: 45px;
+    background-color: rgba(10, 116, 218, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary);
+    font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    width: 100%;
+    padding: 0.9rem;
+    margin-bottom: 1.2rem;
+    border: 1px solid #e2e8f0;
+    border-radius: var(--radius);
+    font-family: inherit;
+    font-size: 1rem;
+    transition: var(--transition);
+  }
+
+  .contact-form input:focus,
+  .contact-form textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(10, 116, 218, 0.1);
+  }
+
+  /* ===== Footer ===== */
+  footer {
+    background-color: var(--text-dark);
+    color: white;
+    padding: 2.5rem 0;
+    text-align: center;
+  }
+
+  .footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .social-links {
+    display: flex;
+    gap: 1.2rem;
+  }
+
+  .social-link {
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.1rem;
+    transition: var(--transition);
+  }
+
+  .social-link:hover {
+    background-color: var(--primary);
+    transform: translateY(-3px);
+  }
+
+  /* ===== Responsive Styles ===== */
+  @media (max-width: 1200px) {
+    .header-container {
+      padding: 0.8rem 1rem;
+    }
+    
+    .nav-links {
+      gap: 0.8rem;
+    }
+    
+    .nav-links a {
+      font-size: 0.8rem;
+      padding: 0.4rem 0.6rem;
+    }
+    
+    .btn {
+      padding: 0.6rem 1.2rem;
+      font-size: 0.85rem;
+    }
+  }
+
+  @media (max-width: 992px) {
+    .hero-container,
+    .about-content,
+    .contact-container {
+      grid-template-columns: 1fr;
+    }
+    
+    .grid-3 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    h1 {
+      font-size: 2.5rem;
+    }
+    
+    h2 {
+      font-size: 2rem;
+    }
+    
+    .nav-links {
+      gap: 0.5rem;
+    }
+    
+    .nav-links a {
+      font-size: 0.75rem;
+      padding: 0.3rem 0.5rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .nav-links {
+      position: fixed;
+      top: 60px;
+      left: 0;
+      width: 100%;
+      background-color: var(--bg-white);
+      flex-direction: column;
+      padding: 1.5rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      transform: translateY(-100%);
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+      z-index: 999;
+      gap: 1rem;
+      max-height: calc(100vh - 60px);
+      overflow-y: auto;
+    }
+    
+    .nav-links.active {
+      transform: translateY(0);
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    .nav-links a {
+      font-size: 1rem;
+      padding: 0.8rem;
+      text-align: center;
+      width: 100%;
+    }
+    
+    .menu-toggle {
+      display: flex;
+    }
+    
+    .header-buttons {
+      display: none;
+    }
+    
+    .mobile-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      padding: 1rem;
+      width: 100%;
+    }
+    
+    .mobile-buttons .btn {
+      width: 100%;
+      justify-content: center;
+    }
+    
+    .grid-2,
+    .grid-3 {
+      grid-template-columns: 1fr;
+    }
+    
+    section {
+      padding: 3rem 0;
+    }
+    
+    .hero {
+      padding-top: 7rem;
+      padding-bottom: 4rem;
+    }
+    
+    .header-container {
+      padding: 0.6rem 1rem;
+    }
+    
+    .logo {
+      font-size: 1.3rem;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .hero-buttons {
+      flex-direction: column;
+      align-items: stretch;
+    }
+    
+    .hero-buttons .btn {
+      width: 100%;
+      justify-content: center;
+    }
+    
+    .experience-badge {
+      position: relative;
+      bottom: 0;
+      right: 0;
+      margin-top: 2rem;
+    }
+    
+    h1 {
+      font-size: 2.2rem;
+    }
+    
+    h2 {
+      font-size: 1.8rem;
+    }
+    
+    .card {
+      padding: 1.5rem;
+    }
+    
+    .expertise-container {
+      padding: 1.5rem;
+    }
+  }
+
+  /* Mobile buttons container in nav */
+  .mobile-buttons {
+    display: none;
+  }
+
+  @media (max-width: 768px) {
+    .mobile-buttons {
+      display: flex;
+    }
+    
+    .header-buttons {
+      display: none;
+    }
+  }
+</style>
+</head>
+<body>
+  <!-- Header & Navigation -->
+  <header id="header">
+    <div class="container header-container">
+      <a href="#home" class="logo">
+        
+        <span>Subhan Khan</span>
+      </a>
+      
+      <div class="nav-container">
+        <nav>
+          <ul class="nav-links" id="navLinks">
+            <li><a href="#home" class="active">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#professional-summary">Summary</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#projects">Installations</a></li>
+            <li><a href="#expertise">Expertise</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#certifications">Certifications</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+        
+        <div class="header-buttons">
+          <a href="#contact" class="btn btn-outline">Get In Touch</a>
+          <!-- <a href="SubhanAhmedKhan_CV.pdf" download class="btn btn-primary">
+            <i class="fas fa-download"></i> Download CV
+          </a> -->
+        </div>
+        
+        <button class="menu-toggle" id="menuToggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="container hero-container">
+      <div class="hero-content">
+        <div class="title">Biomedical Engineer & Service Manager</div>
+        <h1>Hi, I'm <span>Subhan Ahmed Khan</span></h1>
+        <p>I have Hands-on over 4+ years Of Experience and specialize in Next-Generation Sequencing (NGS), Genetic Analyzers, and molecular diagnostics platforms. With official Thermo Fisher training in Singapore, I bring cutting-edge expertise to biomedical engineering challenges.</p>
+        <div class="hero-buttons">
+          <a href="#projects" class="btn btn-primary">
+            <i class="fas fa-project-diagram"></i> View INSTALLATIONS
+          </a>
+          <a href="#contact" class="btn btn-outline">
+            <i class="fas fa-paper-plane"></i> Contact Me
+          </a>
+          <a href="BME_SubhanKhan_Updated.pdf" download class="btn btn-primary">
+            <i class="fas fa-download"></i> Download CV
+          </a>
+        </div>
+      </div>
+      
+      <div class="hero-image">
+        <img src="images/aboutimg.jpg" alt="Biomedical Engineer">
+        <div class="floating-icon">
+          <i class="fas fa-dna"></i>
+        </div>
+        <div class="floating-icon">
+          <i class="fas fa-microscope"></i>
+        </div>
+        <div class="floating-icon">
+          <i class="fas fa-tools"></i>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- About Section -->
+<section id="about">
+  <div class="container">
+    <div class="section-title-center">
+      <h2>About Me</h2>
+      <p>Biomedical Engineer</p>
+    </div>
+    
+    <div class="about-content">
+      <div class="about-text">
+
+        
+        <p>
+          I am a dedicated and results-driven Biomedical Engineer with strong expertise in molecular diagnostics, specializing in Next-Generation Sequencing (NGS), SeqStudio™ Genetic Analyzer, qPCR, and Thermo Fisher Scientific molecular platforms.
+        </p>i also have a experience on Hematalogy machines ,chemistry Analyzer , electrode analyzer,ABGS.
+
+        <p>
+          I have received official professional training in Singapore, including Thermo Fisher SeqStudio™ IQ/OQ/IPV Service Certification and comprehensive hands-on NGS workflow training. This international exposure has strengthened my technical proficiency and ensured adherence to global quality and compliance standards.
+        </p>
+
+        <p>
+          My professional experience includes field service support, system installation, preventive maintenance, workflow optimization, troubleshooting, and end-user training within high-throughput molecular diagnostics laboratories. I am committed to delivering reliable solutions that enhance laboratory performance and customer satisfaction.
+        </p>
+        
+        <div class="highlight-item">
+          <div class="highlight-icon">
+            <i class="fas fa-plane"></i>
+          </div>
+          <div>
+            <h4>International Certification & Training</h4>
+            <p>
+              Officially trained in Singapore with Thermo Fisher SeqStudio™ IQ/OQ/IPV Service Certification
+            </p>
+          </div>
+        </div>
+        
+        <div class="highlight-item">
+          <div class="highlight-icon">
+            <i class="fas fa-globe-americas"></i>
+          </div>
+          <div>
+            <h4>Global Professional Readiness</h4>
+            <p>
+              Experienced in international standards with a strong willingness to relocate and contribute globally
+            </p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="about-image">
+        <img src="images/SubhanPic.jpeg" alt="Subhan Ahmed Khan">
+        <div class="experience-badge">
+          <h3>4+</h3>
+          <p>Years of Professional Experience</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- Professional Summary -->
+  <section id="professional-summary" style="background-color: #f0f7ff;">
+    <div class="container">
+      <div class="section-title-center">
+        <h2>Professional Summary</h2>
+        <p>My expertise at a glance</p>
+      </div>
+      
+      <div class="card">
+        <p>Highly skilled Biomedical Engineer with advanced expertise in Next-Generation Sequencing (NGS), SeqStudio™ Genetic Analyzer, qPCR, and Thermo Fisher Scientific molecular platforms. Officially trained in Singapore with Thermo Fisher SeqStudio™ IQ/OQ/IPV Service Certification and hands-on NGS workflow training.</p>
+        <p>Proven experience delivering field service, installation, IQ/OQ/PQ, preventive maintenance, workflow optimization, and customer training across high-throughput molecular diagnostics labs.</p>
+        <p>Seeking to contribute expertise to Thermo Fisher Scientific U.S. with willingness for relocation and visa sponsorship.</p>
+        
+        <div class="summary-highlights">
+          <div class="grid-3">
+            <div class="highlight-item">
+              <div class="highlight-icon">
+                <i class="fas fa-cogs"></i>
+              </div>
+              <div>
+                <h4>Technical Expertise</h4>
+                <p>Thermo Fisher platforms, NGS, qPCR, Genetic Analyzers mindray hematology machines, edan ABGS, horron elctrode analyzers </p>
+              </div>
+            </div>
+            
+            <div class="highlight-item">
+              <div class="highlight-icon">
+                <i class="fas fa-user-graduate"></i>
+              </div>
+              <div>
+                <h4>Training & Certification</h4>
+                <p>Singapore training with Thermo Fisher certification</p>
+              </div>
+            </div>
+            
+            <div class="highlight-item">
+              <div class="highlight-icon">
+                <i class="fas fa-handshake"></i>
+              </div>
+              <div>
+                <h4>Customer Support</h4>
+                <p>End-user training and workflow optimization</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="services">
+    <div class="container">
+      <div class="section-title-center">
+        <h2>My Services</h2>
+        <p>Comprehensive biomedical engineering solutions</p>
+      </div>
+      
+      <div class="grid-3">
+
+        <div class="card">
+          <div class="card-icon">
+            <i class="fas fa-clipboard-check"></i>
+          </div>
+          <h3>Manager Of Sale and Service</h3>
+           <p>Leading sales growth and service operations by developing strategic plans, managing client relationships, and ensuring high customer satisfaction. Overseeing service teams, coordinating technical support, monitoring performance metrics, and ensuring timely delivery of solutions in molecular diagnostics and laboratory systems.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">
+            <i class="fas fa-tools"></i>
+          </div>
+          <h3>Field Service Engineering</h3>
+          <p>Installation, calibration, IQ/OQ/PQ validations, preventive maintenance, repair & diagnostics of molecular diagnostic instruments.</p>
+        </div>
+        
+        <div class="card">
+          <div class="card-icon">
+            <i class="fas fa-dna"></i>
+          </div>
+          <h3>Applications Support</h3>
+          <p>Workflow design, assay optimization, customer onboarding, and training on NGS and genetic analyzer platforms.</p>
+        </div>
+        
+        <div class="card">
+          <div class="card-icon">
+            <i class="fas fa-clipboard-check"></i>
+          </div>
+          <h3>Quality & Compliance</h3>
+          <p>Ensuring regulatory compliance, quality assurance, service reporting, and documentation in clinical molecular diagnostics.</p>
+        </div>
+
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects">
+    <div class="container">
+      <div class="section-title-center">
+        <h2>My INSTALLATIONS</h2>
+        <p>Recent work and accomplishments</p>
+      </div>
+      
+      <div class="grid-3">
+        <div class="card project-card">
+          <img src="images/1img.jpeg" alt="NGS Workflow" class="project-image">
+          <div class="project-tags">
+            <span class="tag">NGS</span>
+            <span class="tag">Workflow Optimization</span>
+          </div>
+          <h3>NGS Workflow Optimization</h3>
+          <p>Implemented improved library prep and sequencing protocols to increase throughput by 20% while reducing error rates.</p>
+        </div>
+        
+        <div class="card project-card">
+          <img src="images/2img.jpeg" alt="Genetic Analyzer" class="project-image">
+          <div class="project-tags">
+            <span class="tag">Genetic Analyzer</span>
+            <span class="tag">Installation</span>
+          </div>
+          <h3>Genetic Analyzer Installation & Training</h3>
+          <p>Successfully led installation, qualification, and user training for multiple SeqStudio™ Genetic Analyzer instruments.</p>
+        </div>
+        
+        <div class="card project-card">
+          <img src="images/3img.jpeg" alt="Equipment Maintenance" class="project-image">
+          <div class="project-tags">
+            <span class="tag">Maintenance</span>
+            <span class="tag">Calibration</span>
+          </div>
+          <h3>Biomedical Equipment Maintenance</h3>
+          <p>Maintained and calibrated critical biomedical diagnostic equipment at Civil Hospital LUMHS and Ziauddin University.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Expertise Section -->
+  <section id="expertise" style="background-color: #f8fafc;">
+    <div class="container">
+      <div class="section-title-center">
+        <h2>Core Expertise</h2>
+        <p>Technical and soft skills</p>
+      </div>
+      
+      <div class="expertise-container">
+        <div class="skill-category">
+          <h3>Technical Skills</h3>
+          <div class="skill-list">
+            <div class="skill-item">Thermo Fisher Instruments</div>
+            <div class="skill-item">Next Generation Sequencing (NGS)</div>
+            <div class="skill-item">Genetic Analyzers (SeqStudio™, 3500 Series)</div>
+            <div class="skill-item">qPCR (QuantStudio)</div>
+            <div class="skill-item">Field Service Engineering</div>
+            <div class="skill-item">Installation & IQ/OQ/PQ</div>
+            <div class="skill-item">Preventive Maintenance</div>
+            <div class="skill-item">Workflow Optimization</div>
+            <div class="skill-item">Troubleshooting & Diagnostics</div>
+          </div>
+        </div>
+        
+        <div class="skill-category">
+          <h3>Applications & Support</h3>
+          <div class="skill-list">
+            <div class="skill-item">Workflow Design</div>
+            <div class="skill-item">Assay Optimization</div>
+            <div class="skill-item">Customer Training</div>
+            <div class="skill-item">Technical Support</div>
+            <div class="skill-item">SOP Development</div>
+          </div>
+        </div>
+        
+        <div class="skill-category">
+          <h3>Soft Skills</h3>
+          <div class="skill-list">
+            <div class="skill-item">Problem Solving</div>
+            <div class="skill-item">Communication</div>
+            <div class="skill-item">Team Collaboration</div>
+            <div class="skill-item">Project Management</div>
+            <div class="skill-item">Customer Service</div>
+            <div class="skill-item">Attention to Detail</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education Section -->
+  <section id="education">
+    <div class="container">
+      <div class="section-title-center">
+        <h2>Education & Training</h2>
+        <p>Academic background and professional development</p>
+      </div>
+      
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-icon">
+            <i class="fas fa-graduation-cap"></i>
+          </div>
+          <div class="timeline-content">
+            <span class="date">2018 - 2022</span>
+            <h3>BS Biomedical Engineering</h3>
+            <p>Sir Syed University of Engineering & Technology, Karachi</p>
+            <p>Specialized in medical instrumentation and molecular diagnostics</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Certifications Section -->
+  <section id="certifications" style="background-color: #f0f7ff;">
+    <div class="container">
+      <div class="section-title-center">
+        <h2>Certifications</h2>
+        <p>Professional qualifications and training</p>
+      </div>
+      
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-icon">
+            <i class="fas fa-certificate"></i>
+          </div>
+          <div class="timeline-content">
+            <span class="date">May 2025</span>
+            <h3>Thermo Fisher Scientific – SeqStudio™ Service Certification (IQ/OQ/IPV)</h3>
+            <p>Singapore Training Center</p>
+            <p>Official certification for installation, qualification, and performance verification</p>
+          </div>
+        </div>
+        
+        <div class="timeline-item">
+          <div class="timeline-icon">
+            <i class="fas fa-microscope"></i>
+          </div>
+          <div class="timeline-content">
+            <span class="date">2025</span>
+            <h3>Thermo Fisher NGS Hands-On Training</h3>
+            <p>Singapore Training Center</p>
+            <p>Comprehensive hands-on training in Next-Generation Sequencing workflows</p>
+          </div>
+        </div>
+        
+        <div class="timeline-item">
+          <div class="timeline-icon">
+            <i class="fas fa-award"></i>
+          </div>
+          <div class="timeline-content">
+            <span class="date">2022</span>
+            <h3>Teacher Appreciation & Recognition</h3>
+            <p>Sir Syed University of Engineering & Technology</p>
+            <p>Awarded for outstanding Final Year Project Development</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-title-center">
+        <h2>Get In Touch</h2>
+        <p>Let's discuss how I can contribute to your team</p>
+      </div>
+      
+      <div class="contact-container">
+        <div class="contact-info">
+          <h3>Contact Information</h3>
+          <p>I'm open to opportunities and collaborations in biomedical engineering and molecular diagnostics.</p>
+          
+          <div class="contact-details">
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-phone"></i>
+              </div>
+              <div>
+                <h4>Phone</h4>
+                <p>+92 315 3155716</p>
+              </div>
+            </div>
+            
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div>
+                <h4>Email</h4>
+                <p>subhankhanbusniess@gmail.com</p>
+              </div>
+            </div>
+            
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fab fa-linkedin"></i>
+              </div>
+              <div>
+                <h4>LinkedIn</h4>
+                <p>linkedin.com/in/subhan-khan-95a737286</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="hero-buttons">
+            <a href="SubhanAhmedKhan_CV.pdf" download class="btn btn-primary">
+              <i class="fas fa-download"></i> Download CV
+            </a>
+            <a href="#contact" class="btn btn-outline">
+              <i class="fas fa-paper-plane"></i> Contact Me
+            </a>
+          </div>
+        </div>
+        
+        <div class="contact-form">
+          <form id="contactForm" action="mailto:subhankhanbusniess@gmail.com" method="post" enctype="text/plain">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <input type="text" name="subject" placeholder="Subject" required>
+            <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+            <button type="submit" class="btn btn-primary">
+              <i class="fas fa-paper-plane"></i> Send Message
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="logo" style="color: white;">
+          <i class="fas fa-dna"></i>
+          <span>Subhan Ahmed Khan</span>
+        </div>
+        
+        <p>Biomedical Engineer & Service Manager</p>
+        
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/subhan-khan-95a737286" target="_blank" class="social-link">
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a href="mailto:subhankhanbusniess@gmail.com" class="social-link">
+            <i class="fas fa-envelope"></i>
+          </a>
+          <a href="tel:+923153155716" class="social-link">
+            <i class="fas fa-phone"></i>
+          </a>
+        </div>
+        
+        <p>&copy; 2026 Subhan Ahmed Khan. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile Menu Toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      menuToggle.classList.toggle('active');
+    });
+    
+    // Close menu when clicking on a link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        menuToggle.classList.remove('active');
+      });
+    });
+    
+    // Header scroll effect
+    const header = document.getElementById('header');
+    
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+      
+      // Update active nav link based on scroll position
+      const sections = document.querySelectorAll('section');
+      const navItems = document.querySelectorAll('.nav-links a');
+      
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (window.scrollY >= sectionTop - 150) {
+          current = section.getAttribute('id');
+        }
+      });
+      
+      navItems.forEach(item => {
+        item.classList.remove('active');
+        if (item.getAttribute('href') === `#${current}`) {
+          item.classList.add('active');
+        }
+      });
+    });
+    
+    // Form submission
+    const contactForm = document.getElementById('contactForm');
+    
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      // In a real implementation, you would send the form data to a server
+      // For now, we'll just show an alert
+      alert('Thank you for your message! I will get back to you soon.');
+      contactForm.reset();
+    });
+    
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+    
+    // Add mobile buttons to mobile menu
+    const navLinksContainer = document.getElementById('navLinks');
+    const mobileButtons = document.createElement('div');
+    mobileButtons.className = 'mobile-buttons';
+    mobileButtons.innerHTML = `
+      <a href="#contact" class="btn btn-outline">Get In Touch</a>
+      <a href="SubhanAhmedKhan_CV.pdf" download class="btn btn-primary">
+        <i class="fas fa-download"></i> Download CV
+      </a>
+    `;
+    navLinksContainer.appendChild(mobileButtons);
+  </script>
+</body>
+</html>
